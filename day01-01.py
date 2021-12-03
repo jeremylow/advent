@@ -2,7 +2,7 @@ from collections import Counter
 
 
 def main():
-    with open("data-day-1.txt") as f:
+    with open("data/data-day-01.txt") as f:
         data = f.readlines()
     c = Counter()
     for idx, line in enumerate(data):

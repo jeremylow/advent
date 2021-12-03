@@ -1,5 +1,5 @@
 def main():
-    with open("data-day-01.txt") as f:
+    with open("data/data-day-01.txt") as f:
         data = [int(d) for d in f.read().splitlines()]
     c = 0
     for idx, line in enumerate(data):
