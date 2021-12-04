@@ -52,7 +52,7 @@ def filter_to_position(lists, mode=None, position=0, tie=1, anti=False):
 def main(f_read):
     data = [[character for character in line] for line in f_read.splitlines()]
 
-    mode = "".join([mode_or_tie(l) for l in list(zip(*[lis for lis in data]))])
+    mode = "".join([mode_or_tie(l) for l in list(zip(*[lis[0] for lis in data]))])
     anti_mode_ = mode.replace("1", "2").replace("0", "1").replace("2", "0")
 
     oxygen = filter_to_position(lists=data, mode=mode, position=0, tie=1)
