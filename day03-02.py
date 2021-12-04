@@ -18,6 +18,7 @@ def mode_or_tie(lis, tie=1):
 
 
 def filter_to_position(lists, mode=None, position=0, tie=1, anti=False):
+    # print(f"{lists=}, {mode=}, {position=}")
     if len(lists) == 1:
         return lists[0]
     if anti:
@@ -26,7 +27,7 @@ def filter_to_position(lists, mode=None, position=0, tie=1, anti=False):
                 anti_mode(
                     lis,
                 )
-                for lis in list(zip(*[lis for lis in lists]))
+                for lis in list(zip(*[lis[position] for lis in lists]))
             ]
         )
     else:
@@ -35,12 +36,13 @@ def filter_to_position(lists, mode=None, position=0, tie=1, anti=False):
                 mode_or_tie(
                     lis,
                 )
-                for lis in list(zip(*[lis for lis in lists]))
+                for lis in list(zip(*[lis[position] for lis in lists]))
             ]
         )
+    # print(f"{mode=}")
 
     return filter_to_position(
-        list(filter(lambda x: x[position] == mode[position], lists)),
+        list(filter(lambda x: x[position] == mode, lists)),
         mode=mode,
         position=position + 1,
         tie=tie,
